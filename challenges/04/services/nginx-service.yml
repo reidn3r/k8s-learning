@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    app: frontend-service
+    tier: frontend-service
+spec:
+  type: NodePort
+  selector:
+    app: nginx-app
+    tier: frontend
+
+  ports:
+    - port: 80
+      targetPort: 80

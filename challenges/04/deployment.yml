@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-frontend
+  labels:
+    app: nginx-app
+    tier: frontend
+spec:
+  selector:
+    matchLabels:
+      app: nginx-app
+      tier: frontend    
+  template:
+    metadata:
+      labels:
+        app: nginx-app
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:alpine
+          ports:
+          - containerPort: 80
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-volume
+            subPath: nginx.conf
+      volumes:
+        - name: nginx-volume
+          configMap:
+            name: nginx-config
+
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-backend
+  labels:
+    app: backend-server
+    tier: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend-server
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: backend-server
+        tier: backend
+    spec:
+      containers:
+        - name: backend-container
+          image: httpd:alpine3.23
+          ports:
+          - containerPort: 80
