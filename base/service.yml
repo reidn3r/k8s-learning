@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-proxy-service
+  labels:
+    tier: infra
+    app: nginx-infra
+spec:
+  type: NodePort
+  selector:
+    tier: infra
+    app: nginx-infra
+  ports:
+    - port: 3000
+      targetPort: 80

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    tier: infra
+    app: nginx-infra
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: infra
+      app: nginx-infra
+  template:
+    metadata:
+      labels:
+        tier: infra
+        app: nginx-infra
+    spec:
+      containers:
+      - name: nginx-replicas
+        image: nginx:1.29.4
+        ports:
+        - containerPort: 80

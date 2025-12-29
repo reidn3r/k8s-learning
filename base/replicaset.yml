@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-proxy-rs
+  labels:
+    app: nginx-3-replicas
+    tier: infra
+spec:
+  replicas: 3
+  #selector.matchLabels: Deve bater 100% com o template.metadata.labels
+  selector:
+    matchLabels:
+      tier: infra
+      name: nginx-proxy-rs
+  template:
+    metadata:
+      labels:
+        #template.metadata.labels: Deve bater 100% com o spect.selector.matchLabels!!!
+        tier: infra
+        name: nginx-proxy-rs 
+    spec:
+      containers:
+      - name: nginx-proxy
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+    
