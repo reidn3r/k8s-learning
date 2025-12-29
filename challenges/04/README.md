@@ -42,3 +42,7 @@
 
 * `http://ip_node:node_port/backend`
 
+---
+
+### 4. Solução
+![Diagrama da Solução](./assets/solution.png)
