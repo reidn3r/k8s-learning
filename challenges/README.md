@@ -1,4 +1,4 @@
-## Desafios K8s - Do Básico ao Avançado
+## Desafios Kubernetes: Aprendizado 
 
 **Nível 1 - Fundamentos**
 1. Crie um deployment do nginx com 3 réplicas
@@ -64,5 +64,3 @@
    - Resource limits
    - Ingress configurado
    - Tudo em manifests YAML versionados
-
-Comece pelo nível 1 e me avise quando completar - eu passo dicas se travar!
