@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pgsql-metadata
+data:
+  POSTGRES_USER: pgsql
+  POSTGRES_DB: corinthians
