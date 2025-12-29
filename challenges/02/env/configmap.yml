@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pgsql-config
+data:
+  POSTGRES_USER: pgsql
+  POSTGRES_DB: pgsql_k8s
