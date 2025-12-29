@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    app: nginx-http-service
+    tier: networking
+spec:
+  type: NodePort
+  selector:
+    #Mesmas labels que no deployment
+    app: proxy
+    tier: infra
+  ports:
+    - port: 80
+      targetPort: 80
+
+  

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-proxy-app
+  labels:
+    app: proxy
+    tier: infra
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: proxy
+      tier: infra    
+  template:
+    metadata:
+      labels:
+        app: proxy
+        tier: infra
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:1.29.4
+          ports:
+            - containerPort: 80
+    
