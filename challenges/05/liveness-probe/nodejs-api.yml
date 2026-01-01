@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liveness-probe
+  labels:
+    app: live-server
+    tier: infra
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: live-server
+      tier: infra      
+  template:
+    metadata:
+      labels:
+        app: live-server
+        tier: infra              
+    spec:
+      containers:
+      #Imagem: https://hub.docker.com/repository/docker/reidn3r/nodejs/tags/v1.0.1/sha256-70b7e929b43c7110b7b773b3a271135ccbe43e2b99872e3e1949d7f0177d37bd
+        - name: server
+          image: reidn3r/nodejs:1.0.1
+          
+          livenessProbe:
+            httpGet:
+              httpHeaders:
+              - name: User-Agent
+                value: K8sAgent
+              path: /health
+              port: 3001
+            periodSeconds: 5 
+            initialDelaySeconds: 30
+          
+          startupProbe:
+            exec:
+              command:
+                - cat
+                - /tmp/healthy
+            failureThreshold: 30
+            periodSeconds: 5
+          ports:
+            - containerPort: 80

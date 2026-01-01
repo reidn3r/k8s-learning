@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: liveness-probe
+  labels:
+    app: live-server
+    tier: infra
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: live-server
+      tier: infra      
+  template:
+    metadata:
+      labels:
+        app: live-server
+        tier: infra              
+    spec:
+      containers:
+      #Imagem: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+        - name: server
+          image: registry.k8s.io/busybox:1.27.2
+          args:
+            - /bin/sh
+            - -c
+            - touch /tmp/healthy; sleep 30; rm -f /tmp/healthy; sleep 600
+          readinessProbe:
+            exec:
+              command:
+                - cat
+                - /tmp/healthy
+          ports:
+            - containerPort: 80
