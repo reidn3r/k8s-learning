@@ -78,12 +78,20 @@ Resumo: 2 Deployments, NodePort, ClusterIP, DNS interno, comunicação entre fro
 
 ## Nível 5 — Health Checks
 
-Status: Não iniciado
+Status: Concluído
+
+Diretório: [`./challenges/05`](./challenges/05)
+
+Resumo: livenessProbe e readinessProbe para verificação de saúde do app em Pod e startupProbe para proteger apps que demorar para iniciar 
 
 
 ## Nível 6 — Jobs e CronJobs
 
-Status: Não iniciado
+Status: Concluído
+
+Diretório: [`./challenges/06`](./challenges/06)
+
+Resumo: Jobs e CronJobs são usados para execução de tarefas pontuais. Jobs executam uma única vez, CronJobs executam em períodos. Cada Job a ser executado cria um novo Pod, executa e termina o Pod
 
 
 ## Nível 7 — Resources e Limits
