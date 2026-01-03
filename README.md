@@ -29,9 +29,9 @@ O objetivo é construir domínio sobre Deployments, Services, ConfigMaps, Volume
 | 2     | ConfigMaps e Secrets | **Concluído**    | [`./challenges/02`](./challenges/02) |
 | 3     | Volumes              | **Concluído**    | [`./challenges/03`](./challenges/03) |
 | 4     | Networking           | **Concluído**    | [`./challenges/04`](./challenges/04) |
-| 5     | Health Checks        | **Não iniciado** | —                                    |
-| 6     | Jobs e CronJobs      | **Não iniciado** | —                                    |
-| 7     | Resources e Limits   | **Não iniciado** | —                                    |
+| 5     | Health Checks        | **Não iniciado** | [`./challenges/05`](./challenges/05) |
+| 6     | Jobs e CronJobs      | **Não iniciado** | [`./challenges/06`](./challenges/06) |
+| 7     | Resources e Limits   | **Não iniciado** | [`./challenges/07`](./challenges/07) |
 | 8     | Namespaces e RBAC    | **Não iniciado** | —                                    |
 | 9     | Real World           | **Não iniciado** | —                                    |
 | Final | Projeto Completo     | **Não iniciado** | —                                    |
@@ -96,7 +96,13 @@ Resumo: Jobs e CronJobs são usados para execução de tarefas pontuais. Jobs ex
 
 ## Nível 7 — Resources e Limits
 
-Status: Não iniciado
+Status: Concluído
+
+Diretório: [`./challenges/07`](./challenges/07)
+
+Resumo: Controle de recursos disponibilizados a Pod's.
+- resources.requests.memory/cpu: Representa a quantidade mínima de recurso que o container precisa para iniciar.
+- resources.limits.memory: Representa o máximo que o container pode usar
 
 
 ## Nível 8 — Namespaces e RBAC
